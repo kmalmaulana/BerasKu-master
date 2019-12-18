@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "881226156279",
+    "firebase_url": "https://berasku-c5454.firebaseio.com",
+    "project_id": "berasku-c5454",
+    "storage_bucket": "berasku-c5454.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881226156279:android:1019f1f88e8f890ae56bf2",
+        "android_client_info": {
+          "package_name": "com.example.berasku"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "881226156279-nasqo1c11mprji8k9ugln698khfuhrkj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7AJXb362tjgCTvVNECTCzuyjpzVxKO48"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "881226156279-nasqo1c11mprji8k9ugln698khfuhrkj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
