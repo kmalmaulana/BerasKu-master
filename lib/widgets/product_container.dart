@@ -11,6 +11,7 @@ class ProductContainer extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(8),
       child: Card(
+        color: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
         child: Column(
           children: <Widget>[
@@ -20,20 +21,18 @@ class ProductContainer extends StatelessWidget {
                   topRight: Radius.circular(8.0)),
               child: Image.asset(
                 'images/beras1.png',
-                width: 156,
-                height: 156,
               ),
             ),
             Center(
               child: Text(
                 productName,
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                 maxLines: 2,
               ),
             ),
             Text(
               productPrice,
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.w400, color: Colors.red),
             ),
           ],
         ),
