@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 // import 'firestoreservice.dart';
  import 'package:firebase_core/firebase_core.dart';
 
+import 'home_page.dart';
+
 class AddProductPage extends StatefulWidget {
   @override
   _AddProductPageState createState() => _AddProductPageState();
@@ -380,6 +382,7 @@ class _AddProductPageState extends State<AddProductPage> {
                   ),
                   onTap: () {
                     addProduct();
+//                    Navigator.push(HomePage(), route)
                   },
                 ),
               ],

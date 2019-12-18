@@ -1,11 +1,12 @@
 import 'dart:async';
-
 import 'package:berasku/firestore_services.dart';
 import 'package:berasku/products.dart';
 import 'package:berasku/widgets/category_tab.dart';
 import 'package:berasku/widgets/product_container.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/product_container.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -31,6 +32,7 @@ class _HomePageState extends State<HomePage> {
 
       setState(() {
         this.items = products;
+        print('printing $items[productName]');
       });
     });
   }
@@ -81,122 +83,19 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         Expanded(
-          child: GridView.count(
-            crossAxisCount: 2,
-            childAspectRatio:
-                9 / 11.2 /**9 / 11.9 */, // tambahkan nilai berikut
-            children: <Widget>[
-              ProductContainer(
-//                productName: '${items[index].productName',
-                productName: '$items[productPrice]',
-                productPrice: '$items',
+            child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                childAspectRatio: 9 / 11.2,
               ),
-              ProductContainer(),
-              ProductContainer(),
-              ProductContainer(),
-              ProductContainer(),
-              ProductContainer(),
-              ProductContainer(),
-              ProductContainer(),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  color: Colors.white,
-                  child: Center(
-                    child: Text(
-                      "1",
-                      style: TextStyle(fontSize: 24.0),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  color: Colors.white,
-                  child: Center(
-                    child: Text(
-                      "2",
-                      style: TextStyle(fontSize: 24.0),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  color: Colors.white,
-                  child: Center(
-                    child: Text(
-                      "3",
-                      style: TextStyle(fontSize: 24.0),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  color: Colors.white,
-                  child: Center(
-                    child: Text(
-                      "4",
-                      style: TextStyle(fontSize: 24.0),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  color: Colors.white,
-                  child: Center(
-                    child: Text(
-                      "1",
-                      style: TextStyle(fontSize: 24.0),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  color: Colors.white,
-                  child: Center(
-                    child: Text(
-                      "2",
-                      style: TextStyle(fontSize: 24.0),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  color: Colors.white,
-                  child: Center(
-                    child: Text(
-                      "3",
-                      style: TextStyle(fontSize: 24.0),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  color: Colors.white,
-                  child: Center(
-                    child: Text(
-                      "4",
-                      style: TextStyle(fontSize: 24.0),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+              itemCount: items.length,
+              itemBuilder: (BuildContext context, int index){
+                return ProductContainer(
+                  productName: '${items[index].productName}',
+                  productPrice: '${items[index].productPrice}',
+                );
+              },
+            )),
       ],
     );
   }
