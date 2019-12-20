@@ -2,13 +2,6 @@ import 'package:berasku/widgets/category_tab.dart';
 import 'package:berasku/widgets/listview_prhotos.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
- import 'package:berasku/products.dart';
- import 'package:cloud_firestore/cloud_firestore.dart';
-// import 'task.dart';
-// import 'firestoreservice.dart';
- import 'package:firebase_core/firebase_core.dart';
-
-import 'home_page.dart';
 
 class AddProductPage extends StatefulWidget {
   @override
@@ -64,6 +57,33 @@ class _AddProductPageState extends State<AddProductPage> {
     });
   }
 
+  void _postDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: new Text("Product Posted Successfuly"),
+          actions: <Widget>[
+            new FlatButton(
+              color: Colors.red,
+              child: new Text("Ok"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void polpulateData(){
+    list = [];
+
+    for (int i = 0; i < 10; i++)
+      list.add(ListItem<String>("item $i"));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,7 +115,6 @@ class _AddProductPageState extends State<AddProductPage> {
                       getProductName(productName);
                     },
                     decoration: InputDecoration(
-                      // labelText: "Nama Product",
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0),
@@ -256,10 +275,6 @@ class _AddProductPageState extends State<AddProductPage> {
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: <Widget>[
-                      CategoryTab(
-                        categoryName: 'All',
-                        tabColor: Colors.black12,
-                      ),
                       SizedBox(
                         width: 10,
                       ),
@@ -273,6 +288,7 @@ class _AddProductPageState extends State<AddProductPage> {
                       CategoryTab(
                         categoryName: 'Rice',
                         tabColor: Colors.black12,
+
                       ),
                       SizedBox(
                         width: 10,
@@ -382,7 +398,7 @@ class _AddProductPageState extends State<AddProductPage> {
                   ),
                   onTap: () {
                     addProduct();
-//                    Navigator.push(HomePage(), route)
+                    _postDialog();
                   },
                 ),
               ],
